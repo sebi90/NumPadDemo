@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 /**
  * Created by Sebi on 12.06.15.
  */
-public class NumPad extends LinearLayout {
+public class NumPad extends LinearLayout implements View.OnClickListener{
     public NumPad(Context context) {
         super(context);
         setup();
@@ -38,7 +38,19 @@ public class NumPad extends LinearLayout {
         inflate(getContext(), R.layout.num_pad_layout, this);
         this.setOrientation(VERTICAL);
 
-        for (int i = 0; i < getChildCount(); i++) {
+        findViewById(R.id.number0).setOnClickListener(this);
+        findViewById(R.id.number1).setOnClickListener(this);
+        findViewById(R.id.number2).setOnClickListener(this);
+        findViewById(R.id.number3).setOnClickListener(this);
+        findViewById(R.id.number4).setOnClickListener(this);
+        findViewById(R.id.number5).setOnClickListener(this);
+        findViewById(R.id.number6).setOnClickListener(this);
+        findViewById(R.id.number7).setOnClickListener(this);
+        findViewById(R.id.number8).setOnClickListener(this);
+        findViewById(R.id.number9).setOnClickListener(this);
+        findViewById(R.id.point).setOnClickListener(this);
+
+        /*for (int i = 0; i < getChildCount(); i++) {
             if (getChildAt(i) instanceof LinearLayout) {
                 LinearLayout layout = (LinearLayout) getChildAt(i);
                 for (int j = 0; j < layout.getChildCount(); j++) {
@@ -55,13 +67,12 @@ public class NumPad extends LinearLayout {
                 }
             }
 
-        }
-
+        }*/
 
     }
 
-
-    public void onButtonClick(View view) {
+    @Override
+    public void onClick(View view) {
 
         Button button = (Button) view;
         char num = button.getText().charAt(0);
